@@ -1,0 +1,22 @@
+name: Echo Name Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      first-name:
+        description: 'First name'
+        required: true
+        type: string
+      last-name:
+        description: 'Last name'
+        required: true
+        type: string
+
+jobs:
+  echo-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo first and last name
+        run: |
+          echo "First Name: ${{ github.event.inputs.first-name }}"
+          echo "Last Name: ${{ github.event.inputs.last-name }}"
